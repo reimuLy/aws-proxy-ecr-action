@@ -8,8 +8,8 @@ This Action allows you to Pull Docker images and push into a ECR repository.
 | `AWS_ACCESS_KEY_ID` | `string` | | Your AWS access key id |
 | `AWS_SECRET_ACCESS_KEY` | `string` | | Your AWS secret access key |
 | `AWS_ACCOUNT` | `string` | | Your AWS Account ID |
-| `AWS_REGION` | `string` | | Your AWS region |
-| `AWS_HOST` | `string` | | Your AWS Host, Default amazonaws.com.cn|
+| `AWS_REGION` | `string` | | Your AWS region, Default "cn-northwest-1" |
+| `AWS_HOST` | `string` | | Your AWS Host, Default "amazonaws.com.cn" |
 
 ## Usage
 Choose one of two methods  
