@@ -12,7 +12,8 @@ This Action allows you to Pull Docker images and push into a ECR repository.
 | `AWS_HOST` | `string` | | Your AWS Host, Default "amazonaws.com.cn" |
 
 ## Action Permissions
-![image](https://github.com/reimuLy/aws-proxy-ecr-action/blob/main/doc/action-permissions.png)
+![image](https://github.com/reimuLy/aws-proxy-ecr-action/blob/main/doc/action-permissions1.png)  
+![image](https://github.com/reimuLy/aws-proxy-ecr-action/blob/main/doc/action-permissions2.png)  
 
 ## Usage
 Choose one of two methods  
