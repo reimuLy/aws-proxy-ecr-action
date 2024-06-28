@@ -22,8 +22,8 @@ jobs:
         ecr_ak: ${{ secrets.AWS_ACCESS_KEY_ID }}
         ecr_sk: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         ecr_account: ${{ secrets.AWS_ACCOUNT }}
-        ecr_region: ${{ secrets.AWS_REGION:"cn-northwest-1" }}
-        ecr_host: ${{ secrets.AWS_HOST:"amazonaws.com.cn" }}
+        ecr_region: ${{ secrets.AWS_REGION || "cn-northwest-1" }}
+        ecr_host: ${{ secrets.AWS_HOST || "amazonaws.com.cn" }}
   close-issue:
       needs: build
       runs-on: ubuntu-latest
