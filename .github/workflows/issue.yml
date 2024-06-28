@@ -1,0 +1,45 @@
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id || github.event.sender.login == 'devilx5'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Echo Image List
+      env:
+        ISSUE_BODY: ${{ github.event.issue.body }}
+        ISSUE_sender: ${{ github.event.sender.login }}
+      run: echo ${{ github.event.sender.login }} & echo "${{ github.event.issue.body }}" > required-images.txt & cat required-images.txt
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:latest
+    - name: Push the Docker image
+      run: docker run -e ecr_ak=${ecr_ak} -e ecr_sk=${ecr_sk} -e ecr_account=${ecr_account} -e ecr_region=${ecr_region} -e ecr_host=${ecr_host} -v /var/run/docker.sock:/var/run/docker.sock my-image-name:latest 
+      env:
+        ecr_ak: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        ecr_sk: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        ecr_account: ${{ secrets.AWS_ACCOUNT }}
+        ecr_region: ${{ secrets.AWS_REGION }}
+        ecr_host: ${{ secrets.AWS_HOST }}
+  close-issue:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Create comment
+          uses: actions-cool/issues-helper@v3
+          with:
+            actions: 'create-comment'
+            token: ${{ secrets.GITHUB_TOKEN }}
+            body: |
+              你好 ${{ github.event.issue.user.login }}。你的镜像拉取任务已完成。
+        - name: Close issue
+          uses: actions-cool/issues-helper@v3
+          with:
+            actions: 'close-issue'
+            token: ${{ secrets.GITHUB_TOKEN }}
+            close-reason: "completed"
+            body: |
+              Hello @${{ github.event.issue.user.login }}.你提交的镜像拉取任务已完成

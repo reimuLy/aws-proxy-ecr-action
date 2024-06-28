@@ -1,0 +1,27 @@
+#
+# 1. check required-images-mirrored.txt for mirrored image list
+# 
+# 2. please add additional required images below
+#
+# 3. delete old images in this txt
+
+# Example
+## name - aws/node-termination-handler for Amazon EKS
+## see - https://github.com/aws/aws-node-termination-handler
+## images defined - https://github.com/aws/aws-node-termination-handler/blob/79bf81f618de474f86636120a40438a47a4e2869/config/helm/aws-node-termination-handler/values.yaml#L5-L7
+#amazon/aws-node-termination-handler:v1.3.1
+# 此行以及以上内容请勿删除。新images在此行下添加。提交新的images时，请删除旧的images
+
+apache/apisix-dashboard:3.0.1-centos
+apache/apisix:3.2.2-centos
+star7th/showdoc:latest
+jenkins/inbound-agent:4.3-4
+fengwenyi/mybatis-plus-code-generator:3.5.2.5
+xuxueli/xxl-job-admin:2.3.1
+rabbitmq:3.7.27-management
+kibana:7.9.1
+moyode/elasticsearch-ik:7.9.3
+vaultwarden/server:1.30.3
+atlassian/confluence-server:7.19
+eipwork/kuboard-agent:v3
+eipwork/kuboard-pv-browser:v1.0.1
