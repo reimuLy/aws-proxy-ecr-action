@@ -34,12 +34,10 @@ jobs:
             actions: 'create-comment'
             token: ${{ secrets.GITHUB_TOKEN }}
             body: |
-              你好 ${{ github.event.issue.user.login }}。你的镜像拉取任务已完成。
+              你好 @${{ github.event.issue.user.login }}。你的镜像拉取任务已完成。
         - name: Close issue
           uses: actions-cool/issues-helper@v3
           with:
             actions: 'close-issue'
             token: ${{ secrets.GITHUB_TOKEN }}
             close-reason: "completed"
-            body: |
-              Hello @${{ github.event.issue.user.login }}.你提交的镜像拉取任务已完成
