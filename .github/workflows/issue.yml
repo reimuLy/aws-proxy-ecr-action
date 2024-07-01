@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id || github.event.sender.login == 'devilx5'
+    if: github.event.repository.owner.id == github.event.sender.id || github.event.sender.login == 'devilx5' || github.event.sender.login == 'dowliu'
     steps:
     - uses: actions/checkout@v4
     - name: Echo Image List
