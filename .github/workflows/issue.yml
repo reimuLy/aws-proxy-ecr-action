@@ -10,9 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Echo Image List
-      env:
-        ISSUE_BODY: ${{ github.event.issue.body }}
-        ISSUE_sender: ${{ github.event.sender.login }}
       run: echo ${{ github.event.sender.login }} & echo "${{ github.event.issue.body }}" > required-images.txt & cat required-images.txt
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:latest
