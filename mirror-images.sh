@@ -9,8 +9,8 @@ do
   replaceDomainName $repo
   createEcrRepo $URI $repo
 done
-
-for image in ${repos[@]}
+images=$(grep -v ^# $IMAGES_FILE_LIST | sed 's/^[[:space:]]*//' | sed 's/\r//g' | sort -u)
+for image in ${images[@]}
 do
   pullAndPush $image
 done
