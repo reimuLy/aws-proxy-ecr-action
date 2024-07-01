@@ -1,3 +1,5 @@
+name: Issue Push
+
 on:
   issues:
     types:
