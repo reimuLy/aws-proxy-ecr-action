@@ -13,7 +13,7 @@ DOMAIN_MAP["asia.gcr.io"]="gcr"
 DOMAIN_MAP["us.gcr.io"]="gcr"
 DOMAIN_MAP["k8s.gcr.io"]="gcr/google_containers"
 DOMAIN_MAP["docker.io"]="dockerhub"
-
+DOMAIN_MAP["quay.azk8s.cn"]="dockerhub"
 function replaceDomainName(){
   math_mirror=False
   URI="$1"
