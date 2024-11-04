@@ -6,12 +6,12 @@ IMAGES_BLACKLIST='blacklist-images.txt'
 IMAGES_IGNORE_LIST='ignore-images.txt'
 
 declare -A DOMAIN_MAP
-DOMAIN_MAP["quayio"]="quay"
-DOMAIN_MAP["quay.io"]="quay"
-DOMAIN_MAP["gcr.io"]="gcr"
-DOMAIN_MAP["asia.gcr.io"]="gcr"
-DOMAIN_MAP["us.gcr.io"]="gcr"
-DOMAIN_MAP["k8s.gcr.io"]="gcr/google_containers"
+DOMAIN_MAP["quayio"]="dockerhub"
+DOMAIN_MAP["quay.io"]="dockerhub"
+DOMAIN_MAP["gcr.io"]="dockerhub"
+DOMAIN_MAP["asia.gcr.io"]="dockerhub"
+DOMAIN_MAP["us.gcr.io"]="dockerhub"
+DOMAIN_MAP["k8s.gcr.io"]="dockerhub"
 DOMAIN_MAP["docker.io"]="dockerhub"
 DOMAIN_MAP["quay.azk8s.cn"]="dockerhub"
 function replaceDomainName(){
